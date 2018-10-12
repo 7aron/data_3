@@ -4,7 +4,7 @@ public class ArrayPalindrome {
 		return isPalindromeRecursive(c, 0, c.length - 1);
 	}
 	
-	public static boolean isPalindromeNonRecursive(char[] c) {
+	public static boolean isPalindromeNoneRecursive(char[] c) {
 		int start = 0;
 		int end   = c.length - 1;
 		
@@ -32,7 +32,7 @@ public class ArrayPalindrome {
 		System.out.println(isPalindromeRecursive(c));
 		
 		char[] c1 = {'a', 'b', 'c', 'r'};
-		System.out.println(isPalindromeNonRecursive(c1));
+		System.out.println(isPalindromeNoneRecursive(c1));
 	}
 }
 
