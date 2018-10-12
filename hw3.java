@@ -1,28 +1,38 @@
-// Ex 1
-
-public class BinaryStrings {
-	public static void printWithout(int n) {
-		printWithout(n, "", 0);
+///// ex 2////
+public class ArrayPalindrome {
+	public static boolean isPalindromeRecursive(char[] c) {
+		return isPalindromeRecursive(c, 0, c.length - 1);
 	}
 	
-	private static void printWithout(int n, String result, int lastDigit) {
-		System.out.println("Hey");
-		if (n == 0) {
-			return;
+	public static boolean isPalindromeNonRecursive(char[] c) {
+		int start = 0;
+		int end   = c.length - 1;
+		
+		while(end > start) {
+			if (c[start] != c[end]) return false;
+			++start; --end;
 		}
 		
-		printWithout(n - 1, result + "0", 0);
-		
-		if (lastDigit == 0) {
-			printWithout(n - 1, result + "1", 1);
-		}
+		return true;
 	}
 	
+	private static boolean isPalindromeRecursive(char[] c, int start, int end) {
+		if (c.length == 0 || c.length == 1) return true;
+		
+		if (start >= end) return true;
+		
+		if (c[start] != c[end])
+			return false;
+		
+		return isPalindromeRecursive(c, start + 1, end - 1);
+	}
 	
 	public static void main(String[] args) {
-		int n = 5;
-		printWithout(n);
+		char[] c = {'a', 'b', 'a', 'b', 'a'};
+		System.out.println(isPalindromeRecursive(c));
+		
+		char[] c1 = {'a', 'b', 'c', 'r'};
+		System.out.println(isPalindromeNonRecursive(c1));
 	}
 }
-
 
